@@ -3,6 +3,7 @@
 $color: hsl(204, 43%, 93%);
 $color-yellow: hsl(71, 73%, 54%);
 $border: 1px solid red;
+$media900: 900px;
 
 *{
     box-sizing: border-box;
@@ -15,7 +16,7 @@ body{
     background-color : $color;
     width: 80vw;
     margin: 0 auto;
-    height: 120vh;
+    height: 100vh;
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     display: flex;
@@ -29,6 +30,14 @@ main{
     grid-template-areas: "section-introduction" "section-plan" "section-about";
     grid-template-columns: 100%;
     grid-template-rows: 35% 30% 30%;
+
+    @media(min-width: $media900){
+        height: 500px;
+        width: 90%;
+        margin: 0 auto;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 45% 55%;
+    }
 }
 
 footer{
@@ -53,6 +62,28 @@ footer{
         font-size: 0.85em;
         line-height: 1.7em;
     }
+
+    
+    @media(min-width: $media900){
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+        justify-content: center;
+
+        p{
+            font-size: 1.25em;
+            margin-bottom: 15px;
+        }
+
+        p:first-child{
+            font-size: 1.5em;
+        }
+
+        p:last-child{
+            font-size: 1em;
+        }
+    }
+
+
 }
 
 .section-introduction__title{
@@ -77,8 +108,15 @@ footer{
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+   
     background-color: hsl(179, 62%, 43%);
+
+    @media(min-width: $media900){
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        justify-content: flex-end;
+
+    }
 
     p{
         color: white;
@@ -86,23 +124,11 @@ footer{
     }
 }
 
-.section-plan__price{
-    font-size: 32px;
-
-    span{
-        font-size: 16px;
-        color: hsl(204, 43%, 93%);
-        font-weight: 400;
-        opacity: 0.6;
-    }
-}
-
 .section-plan__plan-describle{
     height: 75%;
-
-    p{
-        margin-top: 7%
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
     p:first-child{
         font-weight: 700;
@@ -119,6 +145,10 @@ footer{
         font-size: 0.5em;
         opacity: 0.5;
     }
+
+    @media(min-width: $media900){
+        height: 60%;
+    }
 }
 
 .section-plan__div-button{
@@ -128,6 +158,18 @@ footer{
     margin-bottom: 5%;
 }
 
+.section-plan__price{
+    font-size: 32px;
+    span{
+        font-size: 16px;
+        color: hsl(204, 43%, 93%);
+        font-weight: 400;
+        opacity: 0.6;
+    }
+}
+
+
+
 .section-plan__div-button___button{
     background-color: $color-yellow;
     color: white;
@@ -136,7 +178,7 @@ footer{
     border-radius: 5px;
     border: none;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1em;    
 }
 
 .section-about{
@@ -147,6 +189,11 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    @media(min-width: $media900){
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
 
     p, li{
         margin: 0 8%;
